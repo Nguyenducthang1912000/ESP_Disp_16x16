@@ -295,7 +295,7 @@ void display_16x16(char *s)
 	vTaskDelay(100 / portTICK_PERIOD_MS);
 	xTaskCreate(&task_ssd1306_display_text16x16_ll, "ssd1306_display_text", 2048,
 				(void *)s, 6, NULL);
-	vTaskDelay(100 / portTICK_PERIOD_MS);
+	vTaskDelay(50 / portTICK_PERIOD_MS);
 	xTaskCreate(&task_ssd1306_display_text16x16_ff, "ssd1306_display_text", 2048,
 				(void *)s, 6, NULL);
 }
@@ -307,8 +307,10 @@ void app_main(void)
 	ESP_LOGI(TAG, "Initialize OLED");
 	ssd1306_init();
 	xTaskCreate(&task_ssd1306_display_clear, "ssd1306_display_clear", 2048, NULL, 6, NULL);
-	display_16x16("18521393");
-	display_16x16("\n\n18520966");
+	display_16x16("NGUYEN"); //CG
+	display_16x16("\nDUC");
+	display_16x16("\nTHANG");
+	display_16x16("\n18521393");
 	ESP_LOGI(TAG, "FINISH");
 	vTaskDelay(DELAY_TIME_BETWEEN_ITEMS_MS / portTICK_RATE_MS);
 }
